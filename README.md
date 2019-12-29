@@ -6,11 +6,15 @@
 Для начала установите всё необходимое для Ruby on Rails
 
 Далее нужно создать базу данных и запустить миграции: 
+
 bundle install 
+
 bundle rake db:setup
 
 Обновить крон файл через whenever(по крону выполняется рассылка):
+
 https://github.com/javan/whenever 
+
 whenever --update-crontab
 
 Для отправки почты используется smtp, необходимо в config/environments/development.rb внести данные почты и пароля либо подключить другой протокол
