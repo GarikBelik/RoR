@@ -1,17 +1,24 @@
-Добрый день.
+# README
 
-Данное задание содержит под капотом devise, slim, bootstrap, trix, sqlite и т. д.
-Для начала установите всё еобходимое для Ruby on Rails
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Далее нужно создать базу данных и запустить миграции:
-bundle install
-bundle rake db:setup
+Things you may want to cover:
 
-Обновить крон файл через whenever(по крону выполняется рассылка)
+* Ruby version
 
-https://github.com/javan/whenever
-whenever --update-crontab
+* System dependencies
 
-Для отправки почты используется smtp, необходимо в config/environments/development.rb внести данные почты и пароля либо подключить другой протокол
+* Configuration
 
-Написано два небольших теста, дирректория /test/contoller/ и /test/integration/
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
