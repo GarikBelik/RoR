@@ -1,0 +1,17 @@
+- if post.errors.any?
+	.alert.alert-danger
+	    h4
+	      | Ошибка
+	    ul
+	      - post.errors.full_messages.each do |message|
+	        li
+	          = message
+= form_for @post do |form|
+	.form-group
+		= form.label :Название
+		= form.text_field :title, :class => 'form-control'
+	.form-group
+		= form.label :Текст
+		= form.rich_text_area :body, :class => 'editor'
+
+	= form.submit :Сохранить, :class => 'btn btn-primary btn-sm'

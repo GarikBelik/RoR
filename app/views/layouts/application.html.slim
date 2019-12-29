@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title
+      | News
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+  	.container
+  		nav.navbar.navbar-default
+  			.navbar-header
+	  			= link_to 'Главная', root_path, :class => 'navbar-brand'
+  			.collapse.navbar-collapse
+	  			ul.nav.navbar-nav.navbar-right
+	  				- if user_signed_in?
+		  				- if current_user.admin? || current_user.editor?
+		  					li
+								= link_to 'Создать статью', new_post_path
+				 		li
+	          				= link_to 'Выход', destroy_user_session_path, :method => :delete
+	      				li
+	          				= link_to 'Профиль', edit_user_registration_path
+			        - else
+			        	li
+			          		= link_to 'Войти', new_user_session_path
+		          		li
+		          			= link_to 'Зарегистрироваться', new_user_registration_path
+		- if flash.present?
+  			- flash.each do |name, message|
+  				div(class='alert alert-#{name}')
+  					= message
+		= yield

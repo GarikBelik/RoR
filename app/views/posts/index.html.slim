@@ -1,0 +1,14 @@
+h1 Новости
+- @post.each do |news|
+	.media
+		h4
+			= link_to news.title, post_path(news), :class => 'nav-link'
+		.media-body
+			small
+				= news.created_at.to_date.strftime('%d.%m.%Y')
+			div
+				= raw news.body
+			- if user_signed_in? && (current_user.admin? || current_user.editor?)
+				= link_to 'Изменить', edit_post_path(news),  class: 'btn btn-primary btn-sm'
+				= link_to 'Удалить', post_path(news), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-sm'
+		hr
